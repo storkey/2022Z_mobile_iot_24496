@@ -5,10 +5,6 @@ module.exports = async function (context, req) {
   await common.functionWrapper(context, req, async (body) => {
     const connectionString = process.env["PeopleDb"];
     const peopleDb = new PeopleDbContext(connectionString, context.log);
-    body.people = await peopleDb.addPerson(
-      req.query.name,
-      req.query.surname,
-      req.query.phoneNumber
-    );
+    body.people = await peopleDb.delPerson(req.query.personId);
   });
 };

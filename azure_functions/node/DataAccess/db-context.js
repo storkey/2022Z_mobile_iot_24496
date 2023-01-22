@@ -30,14 +30,14 @@ class PeopleDbContext {
     return result.recordset;
   }
 
-  async removePerson(personId) {
-    this.log("removePerson function - run");
+  async delPerson(personId) {
+    this.log("delPerson function - run");
     const connection = await new sql.ConnectionPool(this.config).connect();
     const request = new sql.Request(connection);
     const result = await request.query(
       `delete from People where PersonId=${personId}`
     );
-    this.log("removePerson function - done");
+    this.log("delPerson function - done");
     return result.recordset;
   }
 
