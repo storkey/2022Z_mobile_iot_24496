@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealEstateApp.Pages.PropertyDetailPage"
+             Title="PropertyDetailPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0"
+               x:Name="ImgProperty"
+               VerticalOptions="Start"
+               Aspect="Fill"
+               HeightRequest="280"
+               Grid.RowSpan="3"/>
+        <StackLayout Orientation="Horizontal"
+                     Grid.Row="1"
+                     Margin="20,0,20,0">
+            <ImageButton x:Name="ImgbackBtn"
+                         Source="back_icon"
+                         CornerRadius="10"
+                         BackgroundColor="White"
+                         HeightRequest="40"
+                         WidthRequest="40"
+                         Padding="5"
+                         HorizontalOptions="Start"
+                         VerticalOptions="Start"
+                         Clicked="ImgbackBtn_Clicked"/>
+
+            <ImageButton x:Name="ImgbookmarkBtn"
+                         CornerRadius="10"
+                         BackgroundColor="White"
+                         HeightRequest="40"
+                         WidthRequest="40"
+                         Padding="5"
+                         HorizontalOptions="EndAndExpand"
+                         VerticalOptions="Start"
+                         Clicked="ImgbookmarkBtn_Clicked"/>
+        </StackLayout>
+        <VerticalStackLayout Grid.Row="3" Margin="20">
+            <Label x:Name="LblPrice"
+                   FontSize="Subtitle"/>
+            <HorizontalStackLayout Spacing="5">
+                <Image HeightRequest="20"
+                       Source="location_icon"/>
+                <Label x:Name="LblAddress"
+                       FontSize="Medium"/>
+            </HorizontalStackLayout>
+            <Label Text="Description"
+                   Margin="0,20,0,10"
+                   FontSize="Title"/>
+            <Label x:Name="LblDescription"
+                   FontSize="Medium"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

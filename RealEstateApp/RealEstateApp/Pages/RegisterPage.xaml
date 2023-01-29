@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealEstateApp.Pages.RegisterPage"
+             Title="RegisterPage">
+    <VerticalStackLayout VerticalOptions="Center"
+                         Margin="20,0,20,0"
+                         Spacing="20">
+        <Image Source="dotnet_bot"
+               HorizontalOptions="Center"
+               HeightRequest="80"
+               WidthRequest="80" />
+        <Label Text="Utwórz nowe konto"
+               TextColor="#101010"
+               FontSize="Large"
+               HorizontalOptions="Center"/>
+        <Label Text="Podaj potrzebne informacje"
+               TextColor="LightSlateGray"
+               FontSize="Small"
+               HorizontalOptions="Center"/>
+        <Entry x:Name="FullName"
+               Placeholder="Imię i nazwisko"/>
+        <Entry x:Name="Email"
+               Placeholder="Email"/>
+        <Entry x:Name="Phone"
+               Placeholder="Telefon"/>
+        <Entry x:Name="Password"
+               Placeholder="Hasło"
+               IsPassword="True" />
+        <Button x:Name="BtnRegister"
+                Text="Zarejestruj"
+                HeightRequest="50" 
+                FontSize="Medium"
+                BackgroundColor="DarkSeaGreen"
+                Clicked="BtnRegister_Clicked"/>
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label Text="Masz już konto? "
+                   FontSize="Medium"
+                   TextColor="#101010" />
+            <Label Text="Zaloguj się"
+                   FontSize="Medium"
+                   TextColor="DarkSeaGreen" />
+            <HorizontalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapSignIn" Tapped="TapSignIn_Tapped"/>
+            </HorizontalStackLayout.GestureRecognizers>
+
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>
