@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealEstateApp.Pages.HomePage">
+    <VerticalStackLayout>
+        <ScrollView>
+                <Grid Margin="20" RowSpacing="20">
+                <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+                <VerticalStackLayout Grid.Row="0" Spacing="5">
+                    <Label x:Name="LblFullName"
+                       FontSize="Large"/>
+                    <Label Text="Znajdź idealną miejscówkę w Dubaju"
+                       FontSize="Medium" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="2" Spacing="20">
+                <Label Text="Kategorie"
+                       FontSize="Large" />
+                    <CollectionView x:Name="CvCategories"
+                                HeightRequest="50"
+                                SelectionMode="Single"
+                                SelectionChanged="CvCategories_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="3,3,3,3"
+                                        Padding="10,0,10,0"
+                                        StrokeShape="RoundRectangle 5,5,5,5">
+                                    <HorizontalStackLayout Spacing="5">
+                                        <Image Aspect="AspectFit"
+                                               HeightRequest="20"
+                                               WidthRequest="20"
+                                               Source="{Binding FullImageUrl}"/>
+                                        <Label VerticalOptions="Center"
+                                               FontSize="Medium"
+                                               Text="{Binding Name}"/>
+                                    </HorizontalStackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Row="3" Spacing="20">
+                <Label Text="Najlepsze"
+                       FontSize="Large"/>
+
+                <CollectionView x:Name="CvTopPicks"
+                                HeightRequest="350">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame CornerRadius="25"
+                                       Padding="15"
+                                       BackgroundColor="White">
+                                    <Grid RowSpacing="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Frame Grid.Row="0" 
+                                               HeightRequest="200"
+                                               WidthRequest="250"
+                                               CornerRadius="25"
+                                               Padding="0"
+                                               IsClippedToBounds="True">
+                                            <Image Source="{Binding FullImageUrl}"
+                                                   Aspect="Fill"> </Image>
+                                        </Frame>
+                                        <Label Grid.Row="1"
+                                               FontSize="Subtitle"
+                                               Text="{Binding Name}"></Label>
+                                        <Label Grid.Row="2"
+                                               FontSize="Small"
+                                               WidthRequest="250"
+                                               LineBreakMode="TailTruncation"
+                                               Text="{Binding Address}"></Label>
+                                        <Label Grid.Row="3"
+                                               FontSize="Subtitle"
+                                               TextColor="DarkOliveGreen"
+                                               Text="{Binding Price}"/>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+                
+            </VerticalStackLayout>
+            
+        </Grid>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

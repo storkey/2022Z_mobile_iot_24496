@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealEstateApp.Pages.LoginPage"
+             Title="LoginPage">
+    <VerticalStackLayout>
+        <VerticalStackLayout VerticalOptions="Center"
+                         Margin="20,0,20,0"
+                         Spacing="20">
+            <Image Source="dotnet_bot"
+               HorizontalOptions="Center"
+               HeightRequest="80"
+               WidthRequest="80" />
+            <Label Text="Cześć!"
+               TextColor="#101010"
+               FontSize="Large"
+               HorizontalOptions="Center"/>
+            <Label Text="Podaj potrzebne informacje, aby się zalogować:"
+               TextColor="LightSlateGray"
+               FontSize="Small"
+               HorizontalOptions="Center"/>
+            <Entry x:Name="Email"
+               Placeholder="Email"/>
+            <Entry x:Name="Password"
+               Placeholder="Hasło"
+               IsPassword="True" />
+            <Button x:Name="BtnLogin"
+                Text="Zaloguj się"
+                HeightRequest="50" 
+                FontSize="Medium"
+                BackgroundColor="DarkSeaGreen"
+                Clicked="BtnLogin_Clicked"/>
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Nie masz konta? "
+                   FontSize="Medium"
+                   TextColor="#101010" />
+                <Label Text="Zarejestruj się"
+                   FontSize="Medium"
+                   TextColor="DarkSeaGreen" />
+                <HorizontalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapRegister" Tapped="TapRegister_Tapped"/>
+                </HorizontalStackLayout.GestureRecognizers>
+
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
